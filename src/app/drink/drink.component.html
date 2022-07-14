@@ -1,0 +1,18 @@
+<mat-card class="example-card w-75">
+  <mat-card-header>
+    <span class="fs-2 mb-3 text-end w-100"><fa-icon class="text-secondary" [icon]="faHeart"></fa-icon></span>
+  </mat-card-header>
+  <img mat-card-image [src]="lista.strDrinkThumb" [alt]="lista.strDrink">
+  <mat-card-content>
+    <mat-card-title>{{ lista.strDrink }}</mat-card-title>
+
+    <mat-card-subtitle>{{lista.strCategory}}</mat-card-subtitle>
+  </mat-card-content>
+  <mat-card-actions class="d-flex justify-content-between">
+    <span class="fs-5 mt-3">&euro; 8.00</span>
+    <button (click)="add(lista)" class="btn btn-outline-danger mb-3" mat-button>Aggiungi al carrello</button>
+  </mat-card-actions>
+</mat-card>
+
+
+

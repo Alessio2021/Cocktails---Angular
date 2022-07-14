@@ -1,0 +1,75 @@
+<div class="container mt-2 mb-2">
+  <div
+    class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start"
+  >
+    <ul
+      *ngIf="accountService.isLogged"
+      class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0"
+    >
+      <li>
+        <a
+          class="nav-link text-dark p-0 me-3 ms-3"
+          aria-current="page"
+          [routerLink]="'/home'"
+        >
+          <div class="text-center mt-2">
+            <fa-icon
+              class="text-dark fs-4"
+              [icon]="faMartiniGlassCitrus"
+            ></fa-icon>
+          </div>
+          <div>
+            <span>Home</span>
+          </div>
+        </a>
+      </li>
+      <li>
+        <a class="nav-link text-dark p-0 me-3 ms-3" [routerLink]="'/cart'">
+          <div class="text-center mt-2">
+            <fa-icon class="text-dark fs-4" [icon]="faCartShopping"></fa-icon>
+          </div>
+          <div>
+            <span>Carrello</span>
+          </div>
+        </a>
+      </li>
+      <li>
+        <a class="nav-link text-dark p-0 me-3 ms-3" [routerLink]="'/account'">
+          <div class="text-center mt-2">
+            <fa-icon class="text-dark fs-4" [icon]="faUser"></fa-icon>
+          </div>
+          <div>
+            <span>Account</span>
+          </div>
+        </a>
+      </li>
+    </ul>
+    <div class="text-end" *ngIf="accountService.isLogged; else notLogged">
+      <button
+        (click)="logout()"
+        type="button"
+        class="btn btn-outline-danger me-2"
+      >
+        Logout
+      </button>
+    </div>
+    <ng-template #notLogged>
+      <div class="d-flex justify-content-end">
+        <button
+          [routerLink]="'/login'"
+          type="button"
+          class="btn btn-outline-dark me-2"
+        >
+          Login
+        </button>
+        <button
+          [routerLink]="'/register'"
+          type="button"
+          class="btn btn-warning"
+        >
+          Registrati
+        </button>
+      </div>
+    </ng-template>
+  </div>
+</div>

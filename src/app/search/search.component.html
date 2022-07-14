@@ -1,0 +1,71 @@
+<div class="row mt-2">
+  <div class="offset-1 col-3 d-flex justify-content-center">
+    <label for="">Filtra per categoria</label>
+    <select
+      class="form-select"
+      name="filtroCategoria"
+      id="filtroCategoria"
+      [(ngModel)]="value"
+      (change)="getCategory(value)"
+    >
+      <option value="">seleziona una categoria</option>
+      <option *ngFor="let category of lista" [ngValue]="category">
+        {{ category }}
+      </option>
+    </select>
+  </div>
+  <div class="col-3 d-flex justify-content-center">
+    <form class="d-flex" role="search">
+      <input
+        class="form-control me-2"
+        type="search"
+        placeholder="Ricerca cocktail"
+        aria-label="Search"
+        [(ngModel)]="searchValue"
+        name="search"
+        ngDefaultControl
+      />
+      <button (click)="getByNome(searchValue)" class="btn btn-outline-success ms-2 me-2" type="submit">
+        <fa-icon class="fs-5" [icon]="faMagnifyingGlass"></fa-icon>
+      </button>
+      <button (click)="getByIngredient(searchValue)" class="btn btn-outline-success ms-2" type="submit">
+        <fa-icon class="fs-5" [icon]="faMartiniGlass"></fa-icon>
+      </button>
+    </form>
+  </div>
+  <div class="col-1">
+    <div class="form-check">
+      <input
+        [(ngModel)]="valueRadio"
+        name="Alcholic"
+        ngDefaultControl
+        (change)="getAlcholic(valueRadio)"
+        class="form-check-input"
+        type="radio"
+        name="flexRadioDefault"
+        value="Alcholic"
+        id="Alcholic"
+      />
+      <label class="form-check-label" for="flexRadioDefault1"> Alcolico </label>
+    </div>
+    <div class="form-check">
+      <input
+        [(ngModel)]="valueRadio"
+        name="Analcholic"
+        ngDefaultControl
+        (change)="getAlcholic(valueRadio)"
+        class="form-check-input"
+        type="radio"
+        name="flexRadioDefault"
+        value="Analcholic"
+        id="Analcholic"
+      />
+      <label class="form-check-label" for="flexRadioDefault2">
+        Non alcolico
+      </label>
+    </div>
+  </div>
+  <div class="col-4  d-flex justify-content-start">
+    <button (click)="getRandom()" type="button" class="btn btn-outline-primary">Random</button>
+  </div>
+</div>

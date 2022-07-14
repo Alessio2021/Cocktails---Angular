@@ -1,0 +1,32 @@
+<div class="container d-flex justify-content-center mt-5">
+  <form [formGroup]="form">
+    <div class="mb-3">
+      <label for="exampleInputEmail1" class="form-label">Username</label>
+      <input
+        type="text"
+        class="form-control w-100"
+        aria-describedby="usernameHelp"
+        formControlName="username"
+      />
+    </div>
+    <div class="mb-3">
+      <label for="exampleInputEmail1" class="form-label">Password</label>
+      <input
+        type="password"
+        class="form-control w-100"
+        aria-describedby="passwordHelp"
+        formControlName="password"
+      />
+    </div>
+    <button (click)="onSubmit()" class="btn btn-success" type="submit">Accedi</button>
+    <div>
+      <span class="text-black-50"
+        >Se non possiedi un account,
+        <a [routerLink]="'/register'">Registrati</a></span
+      >
+    </div>
+    <div *ngIf="error != null" class="alert alert-danger" role="alert">
+      {{error}}
+    </div>
+  </form>
+</div>

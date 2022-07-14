@@ -1,0 +1,18 @@
+<div style="background-color: #f8f9fa" class="container-fluid">
+  <div class="row justify-content-center">
+    <app-search (listFiltered)="catchList($event)"></app-search>
+    <app-cart-shopping style="margin-top: 10em; height: 80vh;" class="col-2 fixed-top overflow-scroll"></app-cart-shopping>
+    <div class="offset-1 col-9">
+      <div class="row">
+        <div class="col-12 col-md-4 mt-5" *ngFor="let item of lista">
+          <div class="row">
+            <app-drink
+              [lista]="item"
+              (cocktail)="catchDrink($event)"
+            ></app-drink>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
